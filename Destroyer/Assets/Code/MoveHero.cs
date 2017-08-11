@@ -66,7 +66,7 @@ public class MoveHero : MonoBehaviour
         H = Input.GetAxis("Horizontal");
         #endif
 
-        MoveLeftRight();
+        Move();
 
         if (jump)
         {
@@ -78,7 +78,7 @@ public class MoveHero : MonoBehaviour
         else if (H < 0 && facingRight) Flip();
     }
 
-    public void MoveLeftRight()
+    private void Move()
     {
         rb.velocity = new Vector2(System.Math.Sign(H) * maxSpeed, rb.velocity.y);
         if (H > 0)
